@@ -25,7 +25,31 @@ export default class UserController {
     return response.status(201).json(user)
   }
 
-  // Listar todos os usuários
+  /**
+   * @swagger
+   * /users:
+   *   get:
+   *     summary: Retorna a lista de usuários produtores
+   *     description: Retorna todos os usuários registrados no sistema.
+   *     responses:
+   *       200:
+   *         description: Lista de usuários produtores
+   *         content:
+   *           application/json:
+   *             schema:
+   *               type: array
+   *               items:
+   *                 type: object
+   *                 properties:
+   *                   id:
+   *                     type: integer
+   *                   name:
+   *                     type: string
+   *                   cpf:
+   *                     type: string
+   *                   cnpj:
+   *                     type: string
+   */
   public async index({ response }: HttpContext) {
     const users = await User.all()
 
