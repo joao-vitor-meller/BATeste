@@ -7,6 +7,7 @@ Api com AdonisJS configurado para gerenciar usuários, estados, cidades, fazenda
 - [AdonisJS 6](https://adonisjs.com/)
 - Node.js
 - PostgreSQL
+- ORM: Lucid
 
 ## Instalação
 

@@ -15,11 +15,20 @@ const farmsController = () => import('#controllers/farms_controller')
 const seasonsController = () => import('#controllers/seasons_controller')
 const cropsController = () => import('#controllers/crops_controller')
 const reportsController = () => import('#controllers/reports_controller')
+import { swaggerSpec, swaggerUi } from '#start/swagger'
 
 router.get('/', async () => {
   return {
     hello: 'world',
   }
+})
+
+router.get('/swagger', ({ response }) => {
+  return response.json(swaggerSpec)
+})
+
+router.get('/api-docs', async ({ response }) => {
+  return response.send(swaggerUi.generateHTML(swaggerSpec))
 })
 
 router
