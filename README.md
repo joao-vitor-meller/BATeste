@@ -5,9 +5,20 @@ Api com AdonisJS configurado para gerenciar usuários, estados, cidades, fazenda
 ## Tecnologias Utilizadas
 
 - [AdonisJS 6](https://adonisjs.com/)
-- Node.js
+- Node.js +v22.0.0 (v22.5.1)
 - PostgreSQL
-- ORM: Lucid
+- ORM: [Lucid](https://lucid.adonisjs.com/docs/introduction)
+- Logs: [Pino](https://docs.adonisjs.com/guides/digging-deeper/logger#writing-logs-to-a-file)
+- OpenAPI: Swagger
+- Docker
+
+## Banco de Dados
+
+![Banco de Dados](resources/files/db.png)
+
+sql: [Arquivo para criar as tabelas](resources/files/sql.sql)
+
+Arquivo do Insonmia para simular as rotas: [Insonmia](resources/files/Insomnia_2025-01-26.json)
 
 ## Instalação
 
@@ -21,18 +32,10 @@ Api com AdonisJS configurado para gerenciar usuários, estados, cidades, fazenda
     npm install
    Configure o ambiente:
     Copie o arquivo .env.example e renomeie-o para .env.
-    Atualize as variáveis de ambiente conforme necessário.
+    Atualize as variáveis de ambiente e banco de dados conforme necessário.
    Inicie o servidor:
     node ace serve --watch
    ```
-
-## Banco de Dados
-
-![Banco de Dados](resources/files/db.png)
-
-sql: [Arquivo para criar as tabelas](resources/files/sql.sql)
-
-Arquivo do Insonmia para simular as rotas: [Insonmia](resources/files/Insomnia_2025-01-26.json)
 
 ## Rotas
 
