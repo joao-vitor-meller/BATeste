@@ -1,0 +1,61 @@
+{"level":30,"time":1737951425862,"pid":27474,"hostname":"xenonio","msg":"started HTTP server on 0.0.0.0:3333"}
+{"level":30,"time":1737951430036,"pid":27474,"hostname":"xenonio","msg":"Logger está funcionando?"}
+{"level":50,"time":1737951430075,"pid":27474,"hostname":"xenonio","err":"insert into \"usuarios\" (\"cnpj\", \"nome\") values ($1, $2) returning \"id\" - duplicate key value violates unique constraint \"usuarios_cnpj_key\"","msg":"Erro ao criar usuário"}
+{"level":30,"time":1737951439888,"pid":27529,"hostname":"xenonio","msg":"started HTTP server on 0.0.0.0:3333"}
+{"level":30,"time":1737951446473,"pid":27529,"hostname":"xenonio","msg":"Logger está funcionando?"}
+{"level":50,"time":1737951446511,"pid":27529,"hostname":"xenonio","err":"insert into \"usuarios\" (\"cnpj\", \"nome\") values ($1, $2) returning \"id\" - duplicate key value violates unique constraint \"usuarios_cnpj_key\"","msg":"Erro ao criar usuário"}
+{"level":30,"time":1737951452060,"pid":27529,"hostname":"xenonio","msg":"Logger está funcionando?"}
+{"level":50,"time":1737951452061,"pid":27529,"hostname":"xenonio","err":"insert into \"usuarios\" (\"cnpj\", \"nome\") values ($1, $2) returning \"id\" - duplicate key value violates unique constraint \"usuarios_cnpj_key\"","msg":"Erro ao criar usuário"}
+{"level":30,"time":1737951453861,"pid":27529,"hostname":"xenonio","msg":"Logger está funcionando?"}
+{"level":50,"time":1737951453862,"pid":27529,"hostname":"xenonio","err":"insert into \"usuarios\" (\"cnpj\", \"nome\") values ($1, $2) returning \"id\" - duplicate key value violates unique constraint \"usuarios_cnpj_key\"","msg":"Erro ao criar usuário"}
+{"level":30,"time":1737951538152,"pid":27832,"hostname":"xenonio","msg":"started HTTP server on 0.0.0.0:3333"}
+{"level":30,"time":1737951542276,"pid":27832,"hostname":"xenonio","msg":"Logger está funcionando?"}
+{"level":50,"time":1737951542313,"pid":27832,"hostname":"xenonio","err":"insert into \"usuarios\" (\"cnpj\", \"nome\") values ($1, $2) returning \"id\" - duplicate key value violates unique constraint \"usuarios_cnpj_key\"","msg":"Erro ao criar usuário"}
+{"level":30,"time":1737951546193,"pid":27832,"hostname":"xenonio","msg":"Logger está funcionando?"}
+{"level":50,"time":1737951546194,"pid":27832,"hostname":"xenonio","err":"insert into \"usuarios\" (\"cnpj\", \"nome\") values ($1, $2) returning \"id\" - duplicate key value violates unique constraint \"usuarios_cnpj_key\"","msg":"Erro ao criar usuário"}
+{"level":30,"time":1737951589686,"pid":28090,"hostname":"xenonio","msg":"started HTTP server on 0.0.0.0:3333"}
+{"level":30,"time":1737951591199,"pid":28090,"hostname":"xenonio","msg":"Tentando inserir usuário  Test 3"}
+{"level":50,"time":1737951591243,"pid":28090,"hostname":"xenonio","err":"insert into \"usuarios\" (\"cnpj\", \"nome\") values ($1, $2) returning \"id\" - duplicate key value violates unique constraint \"usuarios_cnpj_key\"","msg":"Erro ao criar usuário"}
+{"level":30,"time":1737951600763,"pid":28162,"hostname":"xenonio","msg":"started HTTP server on 0.0.0.0:3333"}
+{"level":30,"time":1737951652325,"pid":28262,"hostname":"xenonio","msg":"started HTTP server on 0.0.0.0:3333"}
+{"level":30,"time":1737951667791,"pid":28357,"hostname":"xenonio","msg":"started HTTP server on 0.0.0.0:3333"}
+{"level":30,"time":1737951670931,"pid":28357,"hostname":"xenonio","msg":"Tentando inserir usuário Test 3"}
+{"level":50,"time":1737951670970,"pid":28357,"hostname":"xenonio","err":"insert into \"usuarios\" (\"cnpj\", \"nome\") values ($1, $2) returning \"id\" - duplicate key value violates unique constraint \"usuarios_cnpj_key\"","msg":"Erro ao tentar criar usuário"}
+{"level":30,"time":1737951683827,"pid":28446,"hostname":"xenonio","msg":"started HTTP server on 0.0.0.0:3333"}
+{"level":30,"time":1737951794403,"pid":28690,"hostname":"xenonio","msg":"started HTTP server on 0.0.0.0:3333"}
+{"level":30,"time":1737951801071,"pid":28781,"hostname":"xenonio","msg":"started HTTP server on 0.0.0.0:3333"}
+{"level":30,"time":1737951894320,"pid":28930,"hostname":"xenonio","msg":"started HTTP server on 0.0.0.0:3333"}
+{"level":30,"time":1737951907251,"pid":28996,"hostname":"xenonio","msg":"started HTTP server on 0.0.0.0:3333"}
+{"level":30,"time":1737951935502,"pid":29123,"hostname":"xenonio","msg":"started HTTP server on 0.0.0.0:3333"}
+{"level":30,"time":1737952028223,"pid":29231,"hostname":"xenonio","msg":"started HTTP server on 0.0.0.0:3333"}
+{"level":30,"time":1737952085441,"pid":29340,"hostname":"xenonio","msg":"started HTTP server on 0.0.0.0:3333"}
+{"level":30,"time":1737952138019,"pid":29493,"hostname":"xenonio","msg":"started HTTP server on 0.0.0.0:3333"}
+{"level":30,"time":1737952169253,"pid":29610,"hostname":"xenonio","msg":"started HTTP server on 0.0.0.0:3333"}
+{"level":30,"time":1737952170682,"pid":29610,"hostname":"xenonio","msg":"Tentando inserir usuário Test 3"}
+{"level":50,"time":1737952170722,"pid":29610,"hostname":"xenonio","err":"select \"u\".\"id\" as \"userId\", count(\"u\".\"id\") as \"total_users\" from \"usuarios\" as \"u\" where \"u\".\"cnpj\" = $1 - column \"u.id\" must appear in the GROUP BY clause or be used in an aggregate function","msg":"Erro ao tentar criar usuário"}
+{"level":30,"time":1737952217332,"pid":29834,"hostname":"xenonio","msg":"started HTTP server on 0.0.0.0:3333"}
+{"level":30,"time":1737952218505,"pid":29834,"hostname":"xenonio","msg":"Tentando inserir usuário Test 3"}
+{"level":50,"time":1737952218550,"pid":29834,"hostname":"xenonio","err":"insert into \"usuarios\" (\"cnpj\", \"nome\") values ($1, $2) returning \"id\" - duplicate key value violates unique constraint \"usuarios_cnpj_key\"","msg":"Erro ao tentar criar usuário"}
+{"level":30,"time":1737952220163,"pid":29834,"hostname":"xenonio","msg":"Tentando inserir usuário Test 3"}
+{"level":50,"time":1737952220168,"pid":29834,"hostname":"xenonio","err":"insert into \"usuarios\" (\"cnpj\", \"nome\") values ($1, $2) returning \"id\" - duplicate key value violates unique constraint \"usuarios_cnpj_key\"","msg":"Erro ao tentar criar usuário"}
+{"level":30,"time":1737952255300,"pid":29916,"hostname":"xenonio","msg":"started HTTP server on 0.0.0.0:3333"}
+{"level":30,"time":1737952261792,"pid":29985,"hostname":"xenonio","msg":"started HTTP server on 0.0.0.0:3333"}
+{"level":30,"time":1737952292060,"pid":30043,"hostname":"xenonio","msg":"started HTTP server on 0.0.0.0:3333"}
+{"level":30,"time":1737952298263,"pid":30084,"hostname":"xenonio","msg":"started HTTP server on 0.0.0.0:3333"}
+{"level":30,"time":1737952301006,"pid":30084,"hostname":"xenonio","msg":"Tentando inserir usuário Test 3"}
+{"level":50,"time":1737952301045,"pid":30084,"hostname":"xenonio","msg":"CPF ou CNPJ já cadastrado"}
+{"level":30,"time":1737952313449,"pid":30084,"hostname":"xenonio","msg":"Tentando inserir usuário Test"}
+{"level":30,"time":1737952313455,"pid":30084,"hostname":"xenonio","msg":"User entered successfully Test"}
+{"level":30,"time":1737952316042,"pid":30084,"hostname":"xenonio","msg":"Tentando inserir usuário Test"}
+{"level":50,"time":1737952316043,"pid":30084,"hostname":"xenonio","msg":"CPF ou CNPJ já cadastrado"}
+{"level":30,"time":1737952327022,"pid":30159,"hostname":"xenonio","msg":"started HTTP server on 0.0.0.0:3333"}
+{"level":30,"time":1737952425087,"pid":30376,"hostname":"xenonio","msg":"started HTTP server on 0.0.0.0:3333"}
+{"level":30,"time":1737952426156,"pid":30376,"hostname":"xenonio","msg":"Tentando inserir usuário Test"}
+{"level":50,"time":1737952426201,"pid":30376,"hostname":"xenonio","err":"CPF ou CNPJ já cadastrad","msg":"CPF ou CNPJ já cadastrado"}
+{"level":30,"time":1737952451068,"pid":30447,"hostname":"xenonio","msg":"started HTTP server on 0.0.0.0:3333"}
+{"level":30,"time":1737952492611,"pid":30519,"hostname":"xenonio","msg":"started HTTP server on 0.0.0.0:3333"}
+{"level":30,"time":1737952523463,"pid":30610,"hostname":"xenonio","msg":"started HTTP server on 0.0.0.0:3333"}
+{"level":30,"time":1737952534862,"pid":30610,"hostname":"xenonio","msg":"Tentando inserir usuário Test"}
+{"level":50,"time":1737952534862,"pid":30610,"hostname":"xenonio","err":"CNPJ inválido"}
+{"level":30,"time":1737952554835,"pid":30610,"hostname":"xenonio","msg":"Tentando inserir usuário Test"}
+{"level":30,"time":1737952554879,"pid":30610,"hostname":"xenonio","msg":"User entered successfully Test"}

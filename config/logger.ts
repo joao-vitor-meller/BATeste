@@ -14,10 +14,32 @@ const loggerConfig = defineConfig({
       enabled: true,
       name: env.get('APP_NAME'),
       level: env.get('LOG_LEVEL'),
+
+      redact: {
+        paths: ['*.stripe_client_secret'],
+        censor: '[REDACTED]',
+      },
+
       transport: {
         targets: targets()
-          .pushIf(!app.inProduction, targets.pretty())
-          .pushIf(app.inProduction, targets.file({ destination: 1 }))
+          /**
+           * Dev logging
+           */
+          .pushIf(app.inDev, {
+            target: 'pino/file',
+            options: {
+              destination: 'logs/app.log',
+            },
+            level: env.get('LOG_LEVEL'),
+          })
+
+          /**
+           * Production logging
+           */
+          .pushIf(app.inProduction, {
+            target: 'pino-pretty',
+            level: env.get('LOG_LEVEL'),
+          })
           .toArray(),
       },
     },

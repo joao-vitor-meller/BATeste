@@ -3,6 +3,8 @@ import User from '#models/user'
 import { cpf, cnpj } from 'cpf-cnpj-validator'
 import { createUserValidator, updateUserValidator } from '#validators/user'
 import Season from '#models/season'
+import logger from '@adonisjs/core/services/logger'
+import db from '@adonisjs/lucid/services/db'
 
 export default class UserController {
   /**
@@ -43,22 +45,50 @@ export default class UserController {
    *         description: CPF ou CNPJ inválido
    */
   public async store({ request, response }: HttpContext) {
-    const data = request.all()
-    const payload = await createUserValidator.validate(data)
+    try {
+      const data = request.all()
+      const payload = await createUserValidator.validate(data)
 
-    // Validar CPF
-    if (payload.cpf && !cpf.isValid(payload.cpf)) {
-      return response.status(400).json({ error: 'CPF invalid' })
+      logger.info('Tentando inserir usuário %s', payload.name)
+
+      // Validar CPF
+      if (payload.cpf && !cpf.isValid(payload.cpf)) {
+        logger.error({ err: 'CNPJ inválido' })
+        return response.status(400).json({ error: 'CPF invalido' })
+      }
+
+      // Validar CNPJ
+      if (payload.cnpj && !cnpj.isValid(payload.cnpj)) {
+        logger.error({ err: 'CNPJ inválido' })
+        return response.status(400).json({ error: 'CNPJ invalido' })
+      }
+
+      if (payload.cnpj || payload.cpf) {
+        const query = db.from('usuarios as u').select('u.id as userId').count('u.id as total_users')
+
+        if (payload.cnpj) {
+          query.where('u.cnpj', payload.cnpj)
+        }
+
+        if (payload.cpf) {
+          query.orWhere('u.cpf', payload.cpf)
+        }
+
+        const users = await query.groupBy('u.id')
+        if (users?.length > 0) {
+          logger.error({ err: 'CPF ou CNPJ já cadastrado' })
+          return response.status(400).json({ error: 'CPF or CNPJ already registered' })
+        }
+      }
+
+      const user = await User.create(payload)
+
+      logger.info('Usuário cadastrado com sucesso %s', payload.name)
+      return response.status(201).json(user)
+    } catch (error) {
+      logger.error({ err: error.message }, 'Erro ao tentar criar usuário')
+      return response.status(500).json({ error: error.message })
     }
-
-    // Validar CNPJ
-    if (payload.cnpj && !cnpj.isValid(payload.cnpj)) {
-      return response.status(400).json({ error: 'CNPJ invalid' })
-    }
-
-    const user = await User.create(payload)
-
-    return response.status(201).json(user)
   }
 
   /**
