@@ -32,6 +32,8 @@ Api com AdonisJS configurado para gerenciar usuários, estados, cidades, fazenda
 
 sql: [Arquivo para criar as tabelas](sql.sql)
 
+Arquivo do Insonmia para simular as rotas: [Insonmia](Insomnia_2025-01-26.json)
+
 ## Rotas
 
 **GET /users-farms**: Buscar todos produtores com fazendas cadastradas e suas safras.

@@ -5,7 +5,43 @@ import { createUserValidator, updateUserValidator } from '#validators/user'
 import Season from '#models/season'
 
 export default class UserController {
-  // Criar um novo usuário
+  /**
+   * @swagger
+   * /users:
+   *   post:
+   *     summary: Cria um novo usuário
+   *     requestBody:
+   *       required: true
+   *       content:
+   *         application/json:
+   *           schema:
+   *             type: object
+   *             properties:
+   *               name:
+   *                 type: string
+   *               cpf:
+   *                 type: string
+   *               cnpj:
+   *                 type: string
+   *     responses:
+   *       201:
+   *         description: Usuário criado com sucesso
+   *         content:
+   *           application/json:
+   *             schema:
+   *               type: object
+   *               properties:
+   *                 id:
+   *                   type: integer
+   *                 name:
+   *                   type: string
+   *                 cpf:
+   *                   type: string
+   *                 cnpj:
+   *                   type: string
+   *       400:
+   *         description: CPF ou CNPJ inválido
+   */
   public async store({ request, response }: HttpContext) {
     const data = request.all()
     const payload = await createUserValidator.validate(data)
@@ -56,7 +92,57 @@ export default class UserController {
     return response.status(200).json(users)
   }
 
-  // Atualizar os dados de um usuário
+  /**
+   * @swagger
+   * /users/{id}:
+   *   put:
+   *     summary: Atualiza um usuário
+   *     description: Atualiza os dados de um usuário existente pelo ID.
+   *     parameters:
+   *       - name: id
+   *         in: path
+   *         description: ID do usuário a ser atualizado
+   *         required: true
+   *         schema:
+   *           type: integer
+   *     requestBody:
+   *       required: true
+   *       content:
+   *         application/json:
+   *           schema:
+   *             type: object
+   *             properties:
+   *               name:
+   *                 type: string
+   *                 description: Nome do usuário
+   *               cpf:
+   *                 type: string
+   *                 description: CPF do usuário
+   *               cnpj:
+   *                 type: string
+   *                 description: CNPJ do usuário
+   *     responses:
+   *       200:
+   *         description: Usuário atualizado com sucesso
+   *         content:
+   *           application/json:
+   *             schema:
+   *               type: object
+   *               properties:
+   *                 id:
+   *                   type: integer
+   *                 name:
+   *                   type: string
+   *                 cpf:
+   *                   type: string
+   *                 cnpj:
+   *                   type: string
+   *       400:
+   *         description: CPF ou CNPJ inválido
+   *       404:
+   *         description: Usuário não encontrado
+   */
+
   public async update({ params, request, response }: HttpContext) {
     const user = await User.find(params.id)
 
@@ -83,7 +169,23 @@ export default class UserController {
     return response.status(200).json(user)
   }
 
-  // Excluir um usuário
+  /**
+   * @swagger
+   * /users/{id}:
+   *   delete:
+   *     summary: Exclui um usuário
+   *     parameters:
+   *       - name: id
+   *         in: path
+   *         required: true
+   *         schema:
+   *           type: integer
+   *     responses:
+   *       200:
+   *         description: Usuário excluído com sucesso
+   *       404:
+   *         description: Usuário não encontrado
+   */
   public async destroy({ params, response }: HttpContext) {
     const user = await User.find(params.id)
 
@@ -96,6 +198,15 @@ export default class UserController {
     return response.status(200).json({ message: 'User deleted successfully' })
   }
 
+  /**
+   * @swagger
+   * /users/farms:
+   *   get:
+   *     summary: Retorna usuários com suas fazendas e safras
+   *     responses:
+   *       200:
+   *         description: Lista de usuários com fazendas e safras
+   */
   public async userFarms({ response }: HttpContext) {
     const users = await User.query().preload('userFarms', (userFarmsQuery) => {
       userFarmsQuery.preload('city', (cityQuery) => {
