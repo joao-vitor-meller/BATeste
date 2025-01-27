@@ -1,4 +1,4 @@
-# BATest
+# BATeste
 
 Api com AdonisJS configurado para gerenciar usuários, estados, cidades, fazendas, safras, culturas e relatórios. Abaixo estão as rotas disponíveis no sistema.
 
