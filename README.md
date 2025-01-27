@@ -14,8 +14,8 @@ Api com AdonisJS configurado para gerenciar usuários, estados, cidades, fazenda
 1. Clone o repositório:
 
    ```bash
-   git clone https://github.com/seu-usuario/seu-repositorio.git
-   cd seu-repositorio
+   git clone https://github.com/joao-vitor-meller/BATeste.git
+   cd BATeste
 
    Instale as dependências:
     npm install
@@ -28,11 +28,11 @@ Api com AdonisJS configurado para gerenciar usuários, estados, cidades, fazenda
 
 ## Banco de Dados
 
-![Banco de Dados](db.png)
+![Banco de Dados](resources/files/db.png)
 
-sql: [Arquivo para criar as tabelas](sql.sql)
+sql: [Arquivo para criar as tabelas](resources/files/sql.sql)
 
-Arquivo do Insonmia para simular as rotas: [Insonmia](Insomnia_2025-01-26.json)
+Arquivo do Insonmia para simular as rotas: [Insonmia](resources/files/Insomnia_2025-01-26.json)
 
 ## Rotas
 
