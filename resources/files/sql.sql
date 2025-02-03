@@ -3,7 +3,7 @@ CREATE TABLE usuarios (
     id SERIAL PRIMARY KEY,
     nome VARCHAR(100) NOT NULL,
     cpf VARCHAR(11) UNIQUE, -- CPF (11 dígitos),
-    cnpj VARCHAR(14) UNIQUE,  -- CPF ou CNPJ (com até 14 caracteres)
+    cnpj VARCHAR(14) UNIQUE  -- CPF ou CNPJ (com até 14 caracteres)
 );
 
 -- Tabela estados
