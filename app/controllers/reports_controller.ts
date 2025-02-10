@@ -1,76 +1,71 @@
 import type { HttpContext } from '@adonisjs/core/http'
 import Farm from '#models/farm'
 import db from '@adonisjs/lucid/services/db'
+import logger from '@adonisjs/core/services/logger'
 
 export default class ReportsController {
+  /**
+   * @swagger
+   * /reports:
+   *   get:
+   *     summary: Retorna relatórios de fazendas e uso do solo
+   *     responses:
+   *       200:
+   *         description: Relatório gerado com sucesso
+   *       500:
+   *         description: Erro ao buscar dados para os relatórios
+   */
   public async index({ response }: HttpContext) {
-    const farms = await Farm.all()
+    try {
+      const farms = await Farm.all()
+      const totalHectares = farms.reduce((sum, farm) => {
+        const area = farm.totalArea !== null ? Number.parseFloat(String(farm.totalArea)) : 0
+        return sum + area
+      }, 0)
 
-    const totalHectares = farms.reduce((sum, farm) => {
-      const area = farm.totalArea !== null ? Number.parseFloat(String(farm.totalArea)) : 0
-      return sum + area
-    }, 0)
+      const farmsByState = await db
+        .from('propriedades as p')
+        .select('e.nome as estado')
+        .count('p.id as total_fazendas')
+        .join('cidades as c', 'p.id_cidade', 'c.id')
+        .join('estados as e', 'c.id_estado', 'e.id')
+        .groupBy('e.id', 'e.nome')
 
-    // Fazendo a consulta para farms por estado
-    const farmsByState = await db
-      .from('propriedades as p')
-      .select('e.nome as estado')
-      .count('p.id as total_fazendas')
-      .join('cidades as c', 'p.id_cidade', 'c.id')
-      .join('estados as e', 'c.id_estado', 'e.id')
-      .groupBy('e.id', 'e.nome')
+      const farmsByCulture = await db
+        .from('propriedades_safras_culturas as psc')
+        .select('c.nome as cultura')
+        .count('psc.id as total_propriedades')
+        .join('culturas as c', 'psc.id_cultura', 'c.id')
+        .groupBy('c.id', 'c.nome')
 
-    // Fazendo a consulta para farms por cultura
-    const farmsByCulture = await db
-      .from('propriedades_safras_culturas as psc')
-      .select('c.nome as cultura')
-      .count('psc.id as total_propriedades')
-      .join('culturas as c', 'psc.id_cultura', 'c.id')
-      .groupBy('c.id', 'c.nome')
-
-    // Consultando os totais de áreas
-    const dados = await db
-      .from('propriedades')
-      .select(
-        db.raw(
-          'SUM(area_agricultavel) AS total_area_agricultavel, SUM(area_vegetacao) AS total_area_vegetacao, SUM(area_total) AS total_area'
+      const areaData = await db
+        .from('propriedades')
+        .select(
+          db.raw(
+            'SUM(area_agricultavel) AS total_area_agricultavel, SUM(area_vegetacao) AS total_area_vegetacao, SUM(area_total) AS total_area'
+          )
         )
-      )
-      .first()
+        .first()
 
-    // Garantir que as variáveis existem e fazer o cálculo das proporções
-    const areaAgricultavel = dados?.total_area_agricultavel
-      ? Number.parseFloat(dados.total_area_agricultavel)
-      : 0
-    const areaVegetacao = dados?.total_area_vegetacao
-      ? Number.parseFloat(dados.total_area_vegetacao)
-      : 0
+      const totalArea = areaData?.total_area ?? 0
+      const arablePercentage =
+        totalArea > 0 ? (areaData?.total_area_agricultavel / totalArea) * 100 : 0
+      const vegetationPercentage =
+        totalArea > 0 ? (areaData?.total_area_vegetacao / totalArea) * 100 : 0
 
-    const areaTotal = dados?.total_area ? Number.parseFloat(dados.total_area) : 0
-
-    const porcentagemAgricultavel = areaTotal > 0 ? (areaAgricultavel / areaTotal) * 100 : 0
-    const porcentagemVegetacao = areaTotal > 0 ? (areaVegetacao / areaTotal) * 100 : 0
-
-    // Garantir que a soma das porcentagens não ultrapasse 100
-    const totalPorcentagem = porcentagemAgricultavel + porcentagemVegetacao
-    const areaUsage = {
-      agriculturable: Math.round(porcentagemAgricultavel * 100) / 100, // Arredondar para 2 casas decimais
-      vegetation: Math.round(porcentagemVegetacao * 100) / 100, // Arredondar para 2 casas decimais
+      return response.status(200).json({
+        totalFarms: farms.length,
+        totalHectares: Math.round(totalHectares * 100) / 100,
+        farmsByState,
+        farmsByCulture,
+        areaUsage: {
+          arable: Math.round(arablePercentage * 100) / 100,
+          vegetation: Math.round(vegetationPercentage * 100) / 100,
+        },
+      })
+    } catch (error) {
+      logger.error({ err: error.message }, 'Erro ao buscar dados para os relatórios')
+      return response.status(500).json({ error: 'Erro ao buscar dados para os relatórios' })
     }
-
-    // Ajustar se a soma ultrapassar 100%
-    if (totalPorcentagem > 100) {
-      areaUsage.agriculturable = Math.min(areaUsage.agriculturable, 100)
-      areaUsage.vegetation = 100 - areaUsage.agriculturable
-    }
-
-    // Retornar a resposta
-    return response.status(200).json({
-      totalFarms: farms.length, // Não precisa do || 0, pois `farms.length` será sempre um número
-      totalHectares: Math.round(totalHectares * 100) / 100, // Arredondar para 2 casas decimais
-      farmsByState: farmsByState, // Não precisa do || 0
-      farmsByCulture: farmsByCulture, // Não precisa do || 0
-      areaUsage, // Retorna o uso de solo já formatado
-    })
   }
 }

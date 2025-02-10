@@ -117,9 +117,14 @@ export default class UserController {
    *                     type: string
    */
   public async index({ response }: HttpContext) {
-    const users = await User.all()
+    try {
+      const users = await User.all()
 
-    return response.status(200).json(users)
+      return response.status(200).json(users)
+    } catch (error) {
+      logger.error({ err: error.message }, 'Erro ao buscar usuários')
+      return response.status(500).json({ error: error.message })
+    }
   }
 
   /**
@@ -174,29 +179,34 @@ export default class UserController {
    */
 
   public async update({ params, request, response }: HttpContext) {
-    const user = await User.find(params.id)
+    try {
+      const user = await User.find(params.id)
 
-    if (!user) {
-      return response.status(404).json({ message: 'User not found' })
+      if (!user) {
+        return response.status(404).json({ message: 'User not found' })
+      }
+
+      const data = request.all()
+      const payload = await updateUserValidator.validate(data)
+
+      // Validar CPF
+      if (payload.cpf && !cpf.isValid(payload.cpf)) {
+        return response.status(400).json({ error: 'CPF invalid' })
+      }
+
+      // Validar CNPJ
+      if (payload.cnpj && !cnpj.isValid(payload.cnpj)) {
+        return response.status(400).json({ error: 'CNPJ invalid' })
+      }
+
+      user.merge(payload)
+      await user.save()
+
+      return response.status(200).json(user)
+    } catch (error) {
+      logger.error({ err: error.message }, 'Erro no update de usuário')
+      return response.status(500).json({ error: error.message })
     }
-
-    const data = request.all()
-    const payload = await updateUserValidator.validate(data)
-
-    // Validar CPF
-    if (payload.cpf && !cpf.isValid(payload.cpf)) {
-      return response.status(400).json({ error: 'CPF invalid' })
-    }
-
-    // Validar CNPJ
-    if (payload.cnpj && !cnpj.isValid(payload.cnpj)) {
-      return response.status(400).json({ error: 'CNPJ invalid' })
-    }
-
-    user.merge(payload)
-    await user.save()
-
-    return response.status(200).json(user)
   }
 
   /**
@@ -217,15 +227,20 @@ export default class UserController {
    *         description: Usuário não encontrado
    */
   public async destroy({ params, response }: HttpContext) {
-    const user = await User.find(params.id)
+    try {
+      const user = await User.find(params.id)
 
-    if (!user) {
-      return response.status(404).json({ message: 'User not found' })
+      if (!user) {
+        return response.status(404).json({ message: 'User not found' })
+      }
+
+      await user.delete()
+
+      return response.status(200).json({ message: 'User deleted successfully' })
+    } catch (error) {
+      logger.error({ err: error.message }, 'Erro ao deletar usuário')
+      return response.status(500).json({ error: error.message })
     }
-
-    await user.delete()
-
-    return response.status(200).json({ message: 'User deleted successfully' })
   }
 
   /**
@@ -238,33 +253,38 @@ export default class UserController {
    *         description: Lista de usuários com fazendas e safras
    */
   public async userFarms({ response }: HttpContext) {
-    const users = await User.query().preload('userFarms', (userFarmsQuery) => {
-      userFarmsQuery.preload('city', (cityQuery) => {
-        cityQuery.preload('state')
-      }),
-        userFarmsQuery.preload('farmSeasons')
-    })
+    try {
+      const users = await User.query().preload('userFarms', (userFarmsQuery) => {
+        userFarmsQuery.preload('city', (cityQuery) => {
+          cityQuery.preload('state')
+        }),
+          userFarmsQuery.preload('farmSeasons')
+      })
 
-    for (const user of users) {
-      for (const farm of user.userFarms) {
-        for (const season of farm.farmSeasons) {
-          const crops = (await Season.query()
-            .from('propriedades_safras as ps')
-            .select('c.id', 'c.nome')
-            .join('propriedades_safras_culturas as psc', 'psc.id_propriedade_safra', 'ps.id')
-            .join('culturas as c', 'c.id', 'psc.id_cultura')
-            .where('ps.id_propriedade', season.$extras.pivot_id_propriedade)
-            .andWhere('ps.id_safra', season.$extras.pivot_id_safra)
-            .exec()) as { id: number; name: string }[]
+      for (const user of users) {
+        for (const farm of user.userFarms) {
+          for (const season of farm.farmSeasons) {
+            const crops = (await Season.query()
+              .from('propriedades_safras as ps')
+              .select('c.id', 'c.nome')
+              .join('propriedades_safras_culturas as psc', 'psc.id_propriedade_safra', 'ps.id')
+              .join('culturas as c', 'c.id', 'psc.id_cultura')
+              .where('ps.id_propriedade', season.$extras.pivot_id_propriedade)
+              .andWhere('ps.id_safra', season.$extras.pivot_id_safra)
+              .exec()) as { id: number; name: string }[]
 
-          Object.assign(season, {
-            ...season.toJSON(),
-            crops,
-          })
+            Object.assign(season, {
+              ...season.toJSON(),
+              crops,
+            })
+          }
         }
       }
-    }
 
-    return response.status(200).json(users)
+      return response.status(200).json(users)
+    } catch (error) {
+      logger.error({ err: error.message }, 'Erro ao buscar dados de todos usuários')
+      return response.status(500).json({ error: error.message })
+    }
   }
 }
