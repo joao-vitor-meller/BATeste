@@ -1,0 +1,447 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "API AdonisJS",
+    "version": "1.0.0",
+    "description": "Documentação da API usando Swagger"
+  },
+  "servers": [{ "url": "http://localhost:3333", "description": "Servidor local" }],
+  "paths": {
+    "/cities": {
+      "post": {
+        "summary": "Cria uma nova cidade",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": { "name": { "type": "string" }, "stateId": { "type": "integer" } }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": { "description": "Cidade criada com sucesso" },
+          "400": { "description": "Erro de validação" }
+        }
+      },
+      "get": {
+        "summary": "Retorna a lista de cidades",
+        "responses": { "200": { "description": "Lista de cidades" } }
+      }
+    },
+    "/cities/{id}": {
+      "put": {
+        "summary": "Atualiza os dados de uma cidade",
+        "parameters": [
+          { "name": "id", "in": "path", "required": true, "schema": { "type": "integer" } }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": { "name": { "type": "string" }, "stateId": { "type": "integer" } }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": { "description": "Cidade atualizada com sucesso" },
+          "404": { "description": "Cidade não encontrada" }
+        }
+      },
+      "delete": {
+        "summary": "Exclui uma cidade",
+        "parameters": [
+          { "name": "id", "in": "path", "required": true, "schema": { "type": "integer" } }
+        ],
+        "responses": {
+          "200": { "description": "Cidade excluída com sucesso" },
+          "404": { "description": "Cidade não encontrada" }
+        }
+      }
+    },
+    "/crops": {
+      "post": {
+        "summary": "Cria uma nova cultura",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "type": "object", "properties": { "name": { "type": "string" } } }
+            }
+          }
+        },
+        "responses": {
+          "201": { "description": "Cultura criada com sucesso" },
+          "400": { "description": "Erro de validação" }
+        }
+      },
+      "get": {
+        "summary": "Retorna a lista de culturas",
+        "responses": { "200": { "description": "Lista de culturas" } }
+      }
+    },
+    "/crops/{id}": {
+      "put": {
+        "summary": "Atualiza os dados de uma cultura",
+        "parameters": [
+          { "name": "id", "in": "path", "required": true, "schema": { "type": "integer" } }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "type": "object", "properties": { "name": { "type": "string" } } }
+            }
+          }
+        },
+        "responses": {
+          "200": { "description": "Cultura atualizada com sucesso" },
+          "404": { "description": "Cultura não encontrada" }
+        }
+      },
+      "delete": {
+        "summary": "Exclui uma cultura",
+        "parameters": [
+          { "name": "id", "in": "path", "required": true, "schema": { "type": "integer" } }
+        ],
+        "responses": {
+          "200": { "description": "Cultura excluída com sucesso" },
+          "404": { "description": "Cultura não encontrada" }
+        }
+      }
+    },
+    "/farms": {
+      "post": {
+        "summary": "Cria uma nova fazenda",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": { "type": "string" },
+                  "cityId": { "type": "integer" },
+                  "totalArea": { "type": "number" },
+                  "arableArea": { "type": "number" },
+                  "vegetationArea": { "type": "number" },
+                  "userId": { "type": "integer" }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": { "description": "Fazenda criada com sucesso" },
+          "400": { "description": "Erro de validação" }
+        }
+      },
+      "get": {
+        "summary": "Retorna a lista de fazendas",
+        "responses": { "200": { "description": "Lista de fazendas" } }
+      }
+    },
+    "/farms/{id}": {
+      "delete": {
+        "summary": "Exclui uma fazenda",
+        "parameters": [
+          { "name": "id", "in": "path", "required": true, "schema": { "type": "integer" } }
+        ],
+        "responses": {
+          "200": { "description": "Fazenda excluída com sucesso" },
+          "404": { "description": "Fazenda não encontrada" }
+        }
+      }
+    },
+    "/farms/seasons": {
+      "post": {
+        "summary": "Associa uma fazenda a uma safra",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "farmId": { "type": "integer" },
+                  "seasonId": { "type": "integer" },
+                  "cropsIds": { "type": "array", "items": { "type": "integer" } }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": { "description": "Associação criada com sucesso" },
+          "400": { "description": "Erro de validação" }
+        }
+      }
+    },
+    "/reports": {
+      "get": {
+        "summary": "Retorna relatórios de fazendas e uso do solo",
+        "responses": {
+          "200": { "description": "Relatório gerado com sucesso" },
+          "500": { "description": "Erro ao buscar dados para os relatórios" }
+        }
+      }
+    },
+    "/seasons": {
+      "post": {
+        "summary": "Cria uma nova safra",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": { "name": { "type": "string" }, "year": { "type": "integer" } }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": { "description": "Safra criada com sucesso" },
+          "400": { "description": "Erro de validação" }
+        }
+      },
+      "get": {
+        "summary": "Retorna a lista de safras",
+        "responses": { "200": { "description": "Lista de safras" } }
+      }
+    },
+    "/seasons/{id}": {
+      "put": {
+        "summary": "Atualiza uma safra",
+        "parameters": [
+          { "name": "id", "in": "path", "required": true, "schema": { "type": "integer" } }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": { "name": { "type": "string" }, "year": { "type": "integer" } }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": { "description": "Safra atualizada com sucesso" },
+          "404": { "description": "Safra não encontrada" }
+        }
+      },
+      "delete": {
+        "summary": "Exclui uma safra",
+        "parameters": [
+          { "name": "id", "in": "path", "required": true, "schema": { "type": "integer" } }
+        ],
+        "responses": {
+          "200": { "description": "Safra excluída com sucesso" },
+          "404": { "description": "Safra não encontrada" }
+        }
+      }
+    },
+    "/states": {
+      "post": {
+        "summary": "Cria um novo estado",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": { "name": { "type": "string" }, "acronym": { "type": "string" } }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": { "description": "Estado criado com sucesso" },
+          "400": { "description": "Erro de validação" },
+          "500": { "description": "Erro interno do servidor" }
+        }
+      },
+      "get": {
+        "summary": "Lista todos os estados",
+        "responses": {
+          "200": { "description": "Lista de estados" },
+          "500": { "description": "Erro interno do servidor" }
+        }
+      }
+    },
+    "/states/{id}": {
+      "put": {
+        "summary": "Atualiza um estado pelo ID",
+        "parameters": [
+          { "name": "id", "in": "path", "required": true, "schema": { "type": "integer" } }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": { "name": { "type": "string" }, "acronym": { "type": "string" } }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": { "description": "Estado atualizado com sucesso" },
+          "404": { "description": "Estado não encontrado" },
+          "500": { "description": "Erro interno do servidor" }
+        }
+      },
+      "delete": {
+        "summary": "Exclui um estado pelo ID",
+        "parameters": [
+          { "name": "id", "in": "path", "required": true, "schema": { "type": "integer" } }
+        ],
+        "responses": {
+          "200": { "description": "Estado excluído com sucesso" },
+          "404": { "description": "Estado não encontrado" },
+          "500": { "description": "Erro interno do servidor" }
+        }
+      }
+    },
+    "/users": {
+      "post": {
+        "summary": "Cria um novo usuário",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": { "type": "string" },
+                  "cpf": { "type": "string" },
+                  "cnpj": { "type": "string" }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Usuário criado com sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": { "type": "integer" },
+                    "name": { "type": "string" },
+                    "cpf": { "type": "string" },
+                    "cnpj": { "type": "string" }
+                  }
+                }
+              }
+            }
+          },
+          "400": { "description": "CPF ou CNPJ inválido" }
+        }
+      },
+      "get": {
+        "summary": "Retorna a lista de usuários produtores",
+        "description": "Retorna todos os usuários registrados no sistema.",
+        "responses": {
+          "200": {
+            "description": "Lista de usuários produtores",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": { "type": "integer" },
+                      "name": { "type": "string" },
+                      "cpf": { "type": "string" },
+                      "cnpj": { "type": "string" }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/users/{id}": {
+      "put": {
+        "summary": "Atualiza um usuário",
+        "description": "Atualiza os dados de um usuário existente pelo ID.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID do usuário a ser atualizado",
+            "required": true,
+            "schema": { "type": "integer" }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": { "type": "string", "description": "Nome do usuário" },
+                  "cpf": { "type": "string", "description": "CPF do usuário" },
+                  "cnpj": { "type": "string", "description": "CNPJ do usuário" }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Usuário atualizado com sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": { "type": "integer" },
+                    "name": { "type": "string" },
+                    "cpf": { "type": "string" },
+                    "cnpj": { "type": "string" }
+                  }
+                }
+              }
+            }
+          },
+          "400": { "description": "CPF ou CNPJ inválido" },
+          "404": { "description": "Usuário não encontrado" }
+        }
+      },
+      "delete": {
+        "summary": "Exclui um usuário",
+        "parameters": [
+          { "name": "id", "in": "path", "required": true, "schema": { "type": "integer" } }
+        ],
+        "responses": {
+          "200": { "description": "Usuário excluído com sucesso" },
+          "404": { "description": "Usuário não encontrado" }
+        }
+      }
+    },
+    "/users/farms": {
+      "get": {
+        "summary": "Retorna usuários com suas fazendas e safras",
+        "responses": { "200": { "description": "Lista de usuários com fazendas e safras" } }
+      }
+    }
+  },
+  "components": {},
+  "tags": []
+}

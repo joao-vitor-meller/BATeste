@@ -23,12 +23,48 @@ router.get('/', async () => {
   }
 })
 
-router.get('/swagger', ({ response }) => {
+router.get('/swagger', async ({ response }) => {
   return response.json(swaggerSpec)
 })
 
+/**
+ * @swagger
+ * /api-docs:
+ *   get:
+ *     summary: Interface Swagger UI
+ *     description: Exibe a documentação da API em uma interface web
+ *     responses:
+ *       200:
+ *         description: Página do Swagger UI
+ */
 router.get('/api-docs', async ({ response }) => {
-  return response.send(swaggerUi.generateHTML(swaggerSpec))
+  response.header('Content-Type', 'text/html')
+  response.send(`
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Swagger UI</title>
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.15.5/swagger-ui.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.15.5/swagger-ui-bundle.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.15.5/swagger-ui-standalone-preset.min.js"></script>
+    </head>
+    <body>
+        <div id="swagger-ui"></div>
+        <script>
+            window.onload = function() {
+                const ui = SwaggerUIBundle({
+                    url: "/swagger", // Carrega o JSON da documentação
+                    dom_id: "#swagger-ui",
+                    presets: [SwaggerUIBundle.presets.apis, SwaggerUIStandalonePreset],
+                    layout: "StandaloneLayout"
+                });
+            };
+        </script>
+    </body>
+    </html>
+  `)
 })
 
 router

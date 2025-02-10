@@ -1,61 +1,90 @@
-{"level":30,"time":1737951425862,"pid":27474,"hostname":"xenonio","msg":"started HTTP server on 0.0.0.0:3333"}
-{"level":30,"time":1737951430036,"pid":27474,"hostname":"xenonio","msg":"Logger está funcionando?"}
-{"level":50,"time":1737951430075,"pid":27474,"hostname":"xenonio","err":"insert into \"usuarios\" (\"cnpj\", \"nome\") values ($1, $2) returning \"id\" - duplicate key value violates unique constraint \"usuarios_cnpj_key\"","msg":"Erro ao criar usuário"}
-{"level":30,"time":1737951439888,"pid":27529,"hostname":"xenonio","msg":"started HTTP server on 0.0.0.0:3333"}
-{"level":30,"time":1737951446473,"pid":27529,"hostname":"xenonio","msg":"Logger está funcionando?"}
-{"level":50,"time":1737951446511,"pid":27529,"hostname":"xenonio","err":"insert into \"usuarios\" (\"cnpj\", \"nome\") values ($1, $2) returning \"id\" - duplicate key value violates unique constraint \"usuarios_cnpj_key\"","msg":"Erro ao criar usuário"}
-{"level":30,"time":1737951452060,"pid":27529,"hostname":"xenonio","msg":"Logger está funcionando?"}
-{"level":50,"time":1737951452061,"pid":27529,"hostname":"xenonio","err":"insert into \"usuarios\" (\"cnpj\", \"nome\") values ($1, $2) returning \"id\" - duplicate key value violates unique constraint \"usuarios_cnpj_key\"","msg":"Erro ao criar usuário"}
-{"level":30,"time":1737951453861,"pid":27529,"hostname":"xenonio","msg":"Logger está funcionando?"}
-{"level":50,"time":1737951453862,"pid":27529,"hostname":"xenonio","err":"insert into \"usuarios\" (\"cnpj\", \"nome\") values ($1, $2) returning \"id\" - duplicate key value violates unique constraint \"usuarios_cnpj_key\"","msg":"Erro ao criar usuário"}
-{"level":30,"time":1737951538152,"pid":27832,"hostname":"xenonio","msg":"started HTTP server on 0.0.0.0:3333"}
-{"level":30,"time":1737951542276,"pid":27832,"hostname":"xenonio","msg":"Logger está funcionando?"}
-{"level":50,"time":1737951542313,"pid":27832,"hostname":"xenonio","err":"insert into \"usuarios\" (\"cnpj\", \"nome\") values ($1, $2) returning \"id\" - duplicate key value violates unique constraint \"usuarios_cnpj_key\"","msg":"Erro ao criar usuário"}
-{"level":30,"time":1737951546193,"pid":27832,"hostname":"xenonio","msg":"Logger está funcionando?"}
-{"level":50,"time":1737951546194,"pid":27832,"hostname":"xenonio","err":"insert into \"usuarios\" (\"cnpj\", \"nome\") values ($1, $2) returning \"id\" - duplicate key value violates unique constraint \"usuarios_cnpj_key\"","msg":"Erro ao criar usuário"}
-{"level":30,"time":1737951589686,"pid":28090,"hostname":"xenonio","msg":"started HTTP server on 0.0.0.0:3333"}
-{"level":30,"time":1737951591199,"pid":28090,"hostname":"xenonio","msg":"Tentando inserir usuário  Test 3"}
-{"level":50,"time":1737951591243,"pid":28090,"hostname":"xenonio","err":"insert into \"usuarios\" (\"cnpj\", \"nome\") values ($1, $2) returning \"id\" - duplicate key value violates unique constraint \"usuarios_cnpj_key\"","msg":"Erro ao criar usuário"}
-{"level":30,"time":1737951600763,"pid":28162,"hostname":"xenonio","msg":"started HTTP server on 0.0.0.0:3333"}
-{"level":30,"time":1737951652325,"pid":28262,"hostname":"xenonio","msg":"started HTTP server on 0.0.0.0:3333"}
-{"level":30,"time":1737951667791,"pid":28357,"hostname":"xenonio","msg":"started HTTP server on 0.0.0.0:3333"}
-{"level":30,"time":1737951670931,"pid":28357,"hostname":"xenonio","msg":"Tentando inserir usuário Test 3"}
-{"level":50,"time":1737951670970,"pid":28357,"hostname":"xenonio","err":"insert into \"usuarios\" (\"cnpj\", \"nome\") values ($1, $2) returning \"id\" - duplicate key value violates unique constraint \"usuarios_cnpj_key\"","msg":"Erro ao tentar criar usuário"}
-{"level":30,"time":1737951683827,"pid":28446,"hostname":"xenonio","msg":"started HTTP server on 0.0.0.0:3333"}
-{"level":30,"time":1737951794403,"pid":28690,"hostname":"xenonio","msg":"started HTTP server on 0.0.0.0:3333"}
-{"level":30,"time":1737951801071,"pid":28781,"hostname":"xenonio","msg":"started HTTP server on 0.0.0.0:3333"}
-{"level":30,"time":1737951894320,"pid":28930,"hostname":"xenonio","msg":"started HTTP server on 0.0.0.0:3333"}
-{"level":30,"time":1737951907251,"pid":28996,"hostname":"xenonio","msg":"started HTTP server on 0.0.0.0:3333"}
-{"level":30,"time":1737951935502,"pid":29123,"hostname":"xenonio","msg":"started HTTP server on 0.0.0.0:3333"}
-{"level":30,"time":1737952028223,"pid":29231,"hostname":"xenonio","msg":"started HTTP server on 0.0.0.0:3333"}
-{"level":30,"time":1737952085441,"pid":29340,"hostname":"xenonio","msg":"started HTTP server on 0.0.0.0:3333"}
-{"level":30,"time":1737952138019,"pid":29493,"hostname":"xenonio","msg":"started HTTP server on 0.0.0.0:3333"}
-{"level":30,"time":1737952169253,"pid":29610,"hostname":"xenonio","msg":"started HTTP server on 0.0.0.0:3333"}
-{"level":30,"time":1737952170682,"pid":29610,"hostname":"xenonio","msg":"Tentando inserir usuário Test 3"}
-{"level":50,"time":1737952170722,"pid":29610,"hostname":"xenonio","err":"select \"u\".\"id\" as \"userId\", count(\"u\".\"id\") as \"total_users\" from \"usuarios\" as \"u\" where \"u\".\"cnpj\" = $1 - column \"u.id\" must appear in the GROUP BY clause or be used in an aggregate function","msg":"Erro ao tentar criar usuário"}
-{"level":30,"time":1737952217332,"pid":29834,"hostname":"xenonio","msg":"started HTTP server on 0.0.0.0:3333"}
-{"level":30,"time":1737952218505,"pid":29834,"hostname":"xenonio","msg":"Tentando inserir usuário Test 3"}
-{"level":50,"time":1737952218550,"pid":29834,"hostname":"xenonio","err":"insert into \"usuarios\" (\"cnpj\", \"nome\") values ($1, $2) returning \"id\" - duplicate key value violates unique constraint \"usuarios_cnpj_key\"","msg":"Erro ao tentar criar usuário"}
-{"level":30,"time":1737952220163,"pid":29834,"hostname":"xenonio","msg":"Tentando inserir usuário Test 3"}
-{"level":50,"time":1737952220168,"pid":29834,"hostname":"xenonio","err":"insert into \"usuarios\" (\"cnpj\", \"nome\") values ($1, $2) returning \"id\" - duplicate key value violates unique constraint \"usuarios_cnpj_key\"","msg":"Erro ao tentar criar usuário"}
-{"level":30,"time":1737952255300,"pid":29916,"hostname":"xenonio","msg":"started HTTP server on 0.0.0.0:3333"}
-{"level":30,"time":1737952261792,"pid":29985,"hostname":"xenonio","msg":"started HTTP server on 0.0.0.0:3333"}
-{"level":30,"time":1737952292060,"pid":30043,"hostname":"xenonio","msg":"started HTTP server on 0.0.0.0:3333"}
-{"level":30,"time":1737952298263,"pid":30084,"hostname":"xenonio","msg":"started HTTP server on 0.0.0.0:3333"}
-{"level":30,"time":1737952301006,"pid":30084,"hostname":"xenonio","msg":"Tentando inserir usuário Test 3"}
-{"level":50,"time":1737952301045,"pid":30084,"hostname":"xenonio","msg":"CPF ou CNPJ já cadastrado"}
-{"level":30,"time":1737952313449,"pid":30084,"hostname":"xenonio","msg":"Tentando inserir usuário Test"}
-{"level":30,"time":1737952313455,"pid":30084,"hostname":"xenonio","msg":"User entered successfully Test"}
-{"level":30,"time":1737952316042,"pid":30084,"hostname":"xenonio","msg":"Tentando inserir usuário Test"}
-{"level":50,"time":1737952316043,"pid":30084,"hostname":"xenonio","msg":"CPF ou CNPJ já cadastrado"}
-{"level":30,"time":1737952327022,"pid":30159,"hostname":"xenonio","msg":"started HTTP server on 0.0.0.0:3333"}
-{"level":30,"time":1737952425087,"pid":30376,"hostname":"xenonio","msg":"started HTTP server on 0.0.0.0:3333"}
-{"level":30,"time":1737952426156,"pid":30376,"hostname":"xenonio","msg":"Tentando inserir usuário Test"}
-{"level":50,"time":1737952426201,"pid":30376,"hostname":"xenonio","err":"CPF ou CNPJ já cadastrad","msg":"CPF ou CNPJ já cadastrado"}
-{"level":30,"time":1737952451068,"pid":30447,"hostname":"xenonio","msg":"started HTTP server on 0.0.0.0:3333"}
-{"level":30,"time":1737952492611,"pid":30519,"hostname":"xenonio","msg":"started HTTP server on 0.0.0.0:3333"}
-{"level":30,"time":1737952523463,"pid":30610,"hostname":"xenonio","msg":"started HTTP server on 0.0.0.0:3333"}
-{"level":30,"time":1737952534862,"pid":30610,"hostname":"xenonio","msg":"Tentando inserir usuário Test"}
-{"level":50,"time":1737952534862,"pid":30610,"hostname":"xenonio","err":"CNPJ inválido"}
-{"level":30,"time":1737952554835,"pid":30610,"hostname":"xenonio","msg":"Tentando inserir usuário Test"}
-{"level":30,"time":1737952554879,"pid":30610,"hostname":"xenonio","msg":"User entered successfully Test"}
+{"level":30,"time":1739210215019,"pid":8464,"hostname":"Vitor","msg":"started HTTP server on 0.0.0.0:3333"}
+{"level":30,"time":1739210245796,"pid":8464,"hostname":"Vitor","msg":"Tentando inserir usuário Test"}
+{"level":30,"time":1739210245825,"pid":8464,"hostname":"Vitor","msg":"Usuário cadastrado com sucesso Test"}
+{"level":50,"time":1739210268476,"pid":8464,"hostname":"Vitor","err":"insert into \"propriedades_safras\" (\"id_propriedade\", \"id_safra\") values ($1, $2) returning \"id\" - inserção ou atualização em tabela \"propriedades_safras\" viola restrição de chave estrangeira \"propriedades_safras_id_propriedade_fkey\"","msg":"Erro ao associar fazenda a safra"}
+{"level":50,"time":1739210283087,"pid":8464,"hostname":"Vitor","err":"Cannot define \"userId\" on \"Farm\" model, since it is not defined as a model property","msg":"Erro ao criar fazenda"}
+{"level":50,"time":1739210287558,"pid":8464,"hostname":"Vitor","err":"Cannot define \"userId\" on \"Farm\" model, since it is not defined as a model property","msg":"Erro ao criar fazenda"}
+{"level":50,"time":1739210356919,"pid":8464,"hostname":"Vitor","err":"Cannot define \"userId\" on \"Farm\" model, since it is not defined as a model property","msg":"Erro ao criar fazenda"}
+{"level":30,"time":1739210983509,"pid":17756,"hostname":"Vitor","msg":"started HTTP server on 0.0.0.0:3333"}
+{"level":30,"time":1739211003649,"pid":8060,"hostname":"Vitor","msg":"started HTTP server on 0.0.0.0:3333"}
+{"level":30,"time":1739211039660,"pid":18536,"hostname":"Vitor","msg":"started HTTP server on 0.0.0.0:3333"}
+{"level":50,"time":1739211061177,"pid":18536,"hostname":"Vitor","err":"delete from \"propriedades\" where \"id\" = $1 - atualização ou exclusão em tabela \"propriedades\" viola restrição de chave estrangeira \"propriedades_usuarios_id_propriedade_fkey\" em \"propriedades_usuarios\"","msg":"Erro ao excluir fazenda"}
+{"level":30,"time":1739211310379,"pid":760,"hostname":"Vitor","msg":"started HTTP server on 0.0.0.0:3333"}
+{"level":30,"time":1739211391246,"pid":16260,"hostname":"Vitor","msg":"started HTTP server on 0.0.0.0:3333"}
+{"level":30,"time":1739211394420,"pid":19228,"hostname":"Vitor","msg":"started HTTP server on 0.0.0.0:3333"}
+{"level":30,"time":1739211424027,"pid":18276,"hostname":"Vitor","msg":"started HTTP server on 0.0.0.0:3333"}
+{"level":30,"time":1739211470356,"pid":13368,"hostname":"Vitor","msg":"started HTTP server on 0.0.0.0:3333"}
+{"level":30,"time":1739211476312,"pid":18504,"hostname":"Vitor","msg":"started HTTP server on 0.0.0.0:3333"}
+{"level":30,"time":1739211512636,"pid":19684,"hostname":"Vitor","msg":"started HTTP server on 0.0.0.0:3333"}
+{"level":30,"time":1739211517638,"pid":9408,"hostname":"Vitor","msg":"started HTTP server on 0.0.0.0:3333"}
+{"level":30,"time":1739211543537,"pid":8848,"hostname":"Vitor","msg":"started HTTP server on 0.0.0.0:3333"}
+{"level":30,"time":1739211544830,"pid":19052,"hostname":"Vitor","msg":"started HTTP server on 0.0.0.0:3333"}
+{"level":30,"time":1739211704589,"pid":9804,"hostname":"Vitor","msg":"started HTTP server on 0.0.0.0:3333"}
+{"level":30,"time":1739211905224,"pid":15772,"hostname":"Vitor","msg":"started HTTP server on 0.0.0.0:3333"}
+{"level":30,"time":1739211990809,"pid":23760,"hostname":"Vitor","msg":"started HTTP server on 0.0.0.0:3333"}
+{"level":30,"time":1739212009990,"pid":21272,"hostname":"Vitor","msg":"started HTTP server on 0.0.0.0:3333"}
+{"level":30,"time":1739212023883,"pid":23104,"hostname":"Vitor","msg":"started HTTP server on 0.0.0.0:3333"}
+{"level":30,"time":1739212087998,"pid":16764,"hostname":"Vitor","msg":"started HTTP server on 0.0.0.0:3333"}
+{"level":30,"time":1739212137573,"pid":8220,"hostname":"Vitor","msg":"started HTTP server on 0.0.0.0:3333"}
+{"level":30,"time":1739213546979,"pid":27420,"hostname":"Vitor","msg":"started HTTP server on 0.0.0.0:3333"}
+{"level":30,"time":1739213647580,"pid":26164,"hostname":"Vitor","msg":"started HTTP server on 0.0.0.0:3333"}
+{"level":30,"time":1739213665614,"pid":16316,"hostname":"Vitor","msg":"started HTTP server on 0.0.0.0:3333"}
+{"level":30,"time":1739213701568,"pid":3008,"hostname":"Vitor","msg":"started HTTP server on 0.0.0.0:3333"}
+{"level":30,"time":1739213739825,"pid":27836,"hostname":"Vitor","msg":"started HTTP server on 0.0.0.0:3333"}
+{"level":30,"time":1739213911273,"pid":29488,"hostname":"Vitor","msg":"started HTTP server on 0.0.0.0:3333"}
+{"level":30,"time":1739215049717,"pid":28460,"hostname":"Vitor","msg":"started HTTP server on 0.0.0.0:3333"}
+{"level":30,"time":1739215298386,"pid":23180,"hostname":"Vitor","msg":"started HTTP server on 0.0.0.0:3333"}
+{"level":30,"time":1739215321741,"pid":8732,"hostname":"Vitor","msg":"started HTTP server on 0.0.0.0:3333"}
+{"level":30,"time":1739215330057,"pid":25688,"hostname":"Vitor","msg":"started HTTP server on 0.0.0.0:3333"}
+{"level":30,"time":1739215334547,"pid":4368,"hostname":"Vitor","msg":"started HTTP server on 0.0.0.0:3333"}
+{"level":30,"time":1739215364237,"pid":19116,"hostname":"Vitor","msg":"started HTTP server on 0.0.0.0:3333"}
+{"level":60,"time":1739215365620,"pid":19116,"hostname":"Vitor","request_id":"jklo4pbjh40bld31cg420isc","err":{"type":"RuntimeException","message":"Cannot serialize \"function\" to HTTP response","stack":"RuntimeException: Cannot serialize \"function\" to HTTP response\n    at Response.#getDataType (C:\\Users\\vitor\\BATeste\\node_modules\\@adonisjs\\http-server\\src\\response.ts:262:11)\n    at Response.writeBody (C:\\Users\\vitor\\BATeste\\node_modules\\@adonisjs\\http-server\\src\\response.ts:315:27)\n    at Response.finish (C:\\Users\\vitor\\BATeste\\node_modules\\@adonisjs\\http-server\\src\\response.ts:1138:12)\n    at <anonymous> (C:\\Users\\vitor\\BATeste\\node_modules\\@adonisjs\\http-server\\src\\server\\factories\\write_response.ts:19:20)\n    at <anonymous>","name":"RuntimeException","status":500,"code":"E_RUNTIME_EXCEPTION"},"msg":"Response serialization failed"}
+{"level":30,"time":1739215371494,"pid":29408,"hostname":"Vitor","msg":"started HTTP server on 0.0.0.0:3333"}
+{"level":30,"time":1739215420742,"pid":10372,"hostname":"Vitor","msg":"started HTTP server on 0.0.0.0:3333"}
+{"level":30,"time":1739215440958,"pid":15880,"hostname":"Vitor","msg":"started HTTP server on 0.0.0.0:3333"}
+{"level":30,"time":1739215475466,"pid":28284,"hostname":"Vitor","msg":"started HTTP server on 0.0.0.0:3333"}
+{"level":30,"time":1739215482039,"pid":26484,"hostname":"Vitor","msg":"started HTTP server on 0.0.0.0:3333"}
+{"level":30,"time":1739215538662,"pid":27644,"hostname":"Vitor","msg":"started HTTP server on 0.0.0.0:3333"}
+{"level":30,"time":1739215596571,"pid":27640,"hostname":"Vitor","msg":"started HTTP server on 0.0.0.0:3333"}
+{"level":30,"time":1739215611072,"pid":2464,"hostname":"Vitor","msg":"started HTTP server on 0.0.0.0:3333"}
+{"level":30,"time":1739215761164,"pid":10412,"hostname":"Vitor","msg":"started HTTP server on 0.0.0.0:3333"}
+{"level":30,"time":1739215765265,"pid":27340,"hostname":"Vitor","msg":"started HTTP server on 0.0.0.0:3333"}
+{"level":30,"time":1739216238846,"pid":752,"hostname":"Vitor","msg":"started HTTP server on 0.0.0.0:3333"}
+{"level":30,"time":1739216306974,"pid":27956,"hostname":"Vitor","msg":"started HTTP server on 0.0.0.0:3333"}
+{"level":30,"time":1739216631014,"pid":6996,"hostname":"Vitor","msg":"started HTTP server on 0.0.0.0:3333"}
+{"level":30,"time":1739216669129,"pid":14068,"hostname":"Vitor","msg":"started HTTP server on 0.0.0.0:3333"}
+{"level":30,"time":1739216688159,"pid":1612,"hostname":"Vitor","msg":"started HTTP server on 0.0.0.0:3333"}
+{"level":30,"time":1739216692757,"pid":10704,"hostname":"Vitor","msg":"started HTTP server on 0.0.0.0:3333"}
+{"level":60,"time":1739216693109,"pid":10704,"hostname":"Vitor","request_id":"xaoatpkqp6p4vf4ag8ah3acc","err":{"type":"RuntimeException","message":"Cannot serialize \"function\" to HTTP response","stack":"RuntimeException: Cannot serialize \"function\" to HTTP response\n    at Response.#getDataType (C:\\Users\\vitor\\BATeste\\node_modules\\@adonisjs\\http-server\\src\\response.ts:262:11)\n    at Response.writeBody (C:\\Users\\vitor\\BATeste\\node_modules\\@adonisjs\\http-server\\src\\response.ts:315:27)\n    at Response.finish (C:\\Users\\vitor\\BATeste\\node_modules\\@adonisjs\\http-server\\src\\response.ts:1138:12)\n    at <anonymous> (C:\\Users\\vitor\\BATeste\\node_modules\\@adonisjs\\http-server\\src\\server\\factories\\write_response.ts:19:20)\n    at <anonymous>","name":"RuntimeException","status":500,"code":"E_RUNTIME_EXCEPTION"},"msg":"Response serialization failed"}
+{"level":60,"time":1739216694374,"pid":10704,"hostname":"Vitor","request_id":"jwb989kezn6is2deu8w9nmqd","err":{"type":"RuntimeException","message":"Cannot serialize \"function\" to HTTP response","stack":"RuntimeException: Cannot serialize \"function\" to HTTP response\n    at Response.#getDataType (C:\\Users\\vitor\\BATeste\\node_modules\\@adonisjs\\http-server\\src\\response.ts:262:11)\n    at Response.writeBody (C:\\Users\\vitor\\BATeste\\node_modules\\@adonisjs\\http-server\\src\\response.ts:315:27)\n    at Response.finish (C:\\Users\\vitor\\BATeste\\node_modules\\@adonisjs\\http-server\\src\\response.ts:1138:12)\n    at <anonymous> (C:\\Users\\vitor\\BATeste\\node_modules\\@adonisjs\\http-server\\src\\server\\factories\\write_response.ts:19:20)\n    at <anonymous>\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","name":"RuntimeException","status":500,"code":"E_RUNTIME_EXCEPTION"},"msg":"Response serialization failed"}
+{"level":30,"time":1739216702898,"pid":7252,"hostname":"Vitor","msg":"started HTTP server on 0.0.0.0:3333"}
+{"level":30,"time":1739216706508,"pid":10764,"hostname":"Vitor","msg":"started HTTP server on 0.0.0.0:3333"}
+{"level":30,"time":1739216711236,"pid":26368,"hostname":"Vitor","msg":"started HTTP server on 0.0.0.0:3333"}
+{"level":30,"time":1739217269555,"pid":27652,"hostname":"Vitor","msg":"started HTTP server on 0.0.0.0:3333"}
+{"level":30,"time":1739217493874,"pid":11216,"hostname":"Vitor","msg":"started HTTP server on 0.0.0.0:3333"}
+{"level":30,"time":1739217695751,"pid":2384,"hostname":"Vitor","msg":"started HTTP server on 0.0.0.0:3333"}
+{"level":30,"time":1739217701293,"pid":29116,"hostname":"Vitor","msg":"started HTTP server on 0.0.0.0:3333"}
+{"level":30,"time":1739217716055,"pid":28512,"hostname":"Vitor","msg":"started HTTP server on 0.0.0.0:3333"}
+{"level":30,"time":1739217740238,"pid":12664,"hostname":"Vitor","msg":"started HTTP server on 0.0.0.0:3333"}
+{"level":30,"time":1739217887721,"pid":15668,"hostname":"Vitor","msg":"started HTTP server on 0.0.0.0:3333"}
+{"level":30,"time":1739217906205,"pid":6112,"hostname":"Vitor","msg":"started HTTP server on 0.0.0.0:3333"}
+{"level":30,"time":1739217912483,"pid":26944,"hostname":"Vitor","msg":"started HTTP server on 0.0.0.0:3333"}
+{"level":30,"time":1739218014166,"pid":21588,"hostname":"Vitor","msg":"started HTTP server on 0.0.0.0:3333"}
+{"level":30,"time":1739218034697,"pid":24632,"hostname":"Vitor","msg":"started HTTP server on 0.0.0.0:3333"}
+{"level":30,"time":1739218273896,"pid":15888,"hostname":"Vitor","msg":"started HTTP server on 0.0.0.0:3333"}
+{"level":30,"time":1739218548926,"pid":2984,"hostname":"Vitor","msg":"started HTTP server on 0.0.0.0:3333"}
+{"level":30,"time":1739218556173,"pid":25864,"hostname":"Vitor","msg":"started HTTP server on 0.0.0.0:3333"}
+{"level":30,"time":1739218560696,"pid":12512,"hostname":"Vitor","msg":"started HTTP server on 0.0.0.0:3333"}
+{"level":30,"time":1739218569603,"pid":8052,"hostname":"Vitor","msg":"started HTTP server on 0.0.0.0:3333"}
+{"level":30,"time":1739218588732,"pid":6084,"hostname":"Vitor","msg":"started HTTP server on 0.0.0.0:3333"}
+{"level":30,"time":1739218591403,"pid":29520,"hostname":"Vitor","msg":"started HTTP server on 0.0.0.0:3333"}
+{"level":30,"time":1739218733270,"pid":26368,"hostname":"Vitor","msg":"started HTTP server on 0.0.0.0:3333"}
+{"level":30,"time":1739218807152,"pid":29220,"hostname":"Vitor","msg":"started HTTP server on 0.0.0.0:3333"}
+{"level":30,"time":1739218818489,"pid":15112,"hostname":"Vitor","msg":"started HTTP server on 0.0.0.0:3333"}
+{"level":30,"time":1739218830245,"pid":10116,"hostname":"Vitor","msg":"started HTTP server on 0.0.0.0:3333"}
+{"level":30,"time":1739218832785,"pid":28084,"hostname":"Vitor","msg":"started HTTP server on 0.0.0.0:3333"}
+{"level":30,"time":1739218979585,"pid":27588,"hostname":"Vitor","msg":"started HTTP server on 0.0.0.0:3333"}
+{"level":30,"time":1739218991671,"pid":12716,"hostname":"Vitor","msg":"started HTTP server on 0.0.0.0:3333"}
+{"level":30,"time":1739219038329,"pid":8816,"hostname":"Vitor","msg":"started HTTP server on 0.0.0.0:3333"}
+{"level":30,"time":1739219101950,"pid":20032,"hostname":"Vitor","msg":"started HTTP server on 0.0.0.0:3333"}
+{"level":30,"time":1739219139528,"pid":27184,"hostname":"Vitor","msg":"started HTTP server on 0.0.0.0:3333"}
