@@ -37,6 +37,12 @@ Arquivo do Insonmia para simular as rotas: [Insonmia](resources/files/Insomnia_2
     node ace serve --watch
    ```
 
+## Swagger
+
+**GET /api-docs**: Documentação da api com swagger.
+
+![Swagger](resources/files/Swagger.png)
+
 ## Rotas
 
 **GET /users-farms**: Buscar todos produtores com fazendas cadastradas e suas safras.

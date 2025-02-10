@@ -24,4 +24,9 @@ const options = {
 
 const swaggerSpec = swaggerJSDoc(options)
 
+swaggerUi.setup(swaggerSpec, {
+  explorer: true,
+  customCss: '.swagger-ui .topbar { display: none }',
+})
+
 export { swaggerSpec, swaggerUi }
