@@ -41,7 +41,7 @@ Arquivo do Insonmia para simular as rotas: [Insonmia](resources/files/Insomnia_2
 
 **GET /api-docs**: Documentação da api com swagger.
 
-![Swagger](resources/files/Swagger.png)
+![Swagger](resources/files/swagger.png)
 
 ## Rotas
 
